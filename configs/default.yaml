@@ -2,8 +2,8 @@ data:
   name: shapenet_car
   img_size: 64
   nlabels: 1
-  root_dir: data
-  sub_dirs:
+  root_dir: data/shapenet_car
+  sub_dirs: [car1_bg0, car2_bg0]
 generator:
   n_prim: 3
   render_type: point
@@ -14,8 +14,8 @@ z_dist:
 training:
   out_dir: results/default
   param_transforms: rot_30_1
-  batch_size: 32
-  nworkers: 6
+  batch_size: 16
+  nworkers: 2
   monitoring: tensorboard
   sample_every: 1000
   fid_every: 5000

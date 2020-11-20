@@ -1,0 +1,10 @@
+.vscode**
+data**
+**__pycache__**
+log
+**.npz
+**.png
+**.tfevent**
+**.pt
+**.p
+results**

@@ -1,4 +1,4 @@
-import yaml
+from yaml import load, Loader
 from torch import optim
 from os import path
 from gan_training.models import generator_dict, discriminator_dict
@@ -15,7 +15,7 @@ def load_config(path, default_path):
     '''
     # Load configuration from file itself
     with open(path, 'r') as f:
-        cfg_special = yaml.load(f)
+        cfg_special = load(f, Loader)
 
     # Check if we should inherit from a config
     inherit_from = cfg_special.get('inherit_from')
@@ -26,7 +26,7 @@ def load_config(path, default_path):
         cfg = load_config(inherit_from, default_path)
     elif default_path is not None:
         with open(default_path, 'r') as f:
-            cfg = yaml.load(f)
+            cfg = load(f, Loader)
     else:
         cfg = dict()
 
